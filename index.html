@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>HeyGirls.cc — Language should include everyone.</title>
+
+  <meta
+    name="description"
+    content="A small reminder that inclusive language shouldn't depend on gender."
+  />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #f5f3ee;
+      --text: #161616;
+      --muted: #77746e;
+      --line: #d8d5ce;
+      --accent: #ff4d7d;
+      --card: #ebe8e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.5;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-family: "DM Mono", monospace;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a:not(.logo) {
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    nav a:not(.logo):hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 0 120px;
+    }
+
+    .eyebrow {
+      font-family: "DM Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: clamp(58px, 10vw, 128px);
+      line-height: .88;
+      letter-spacing: -.075em;
+      font-weight: 600;
+      max-width: 1000px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-top: 55px;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.45;
+      color: #44413c;
+    }
+
+    .scroll {
+      margin-top: 70px;
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 120px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+    }
+
+    .section-label {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .section-content {
+      max-width: 720px;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-weight: 600;
+      margin-bottom: 38px;
+    }
+
+    .body-copy {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #4d4a44;
+    }
+
+    .body-copy + .body-copy {
+      margin-top: 25px;
+    }
+
+    /* QUOTE */
+
+    .quote {
+      margin: 70px 0 0;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(27px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -.04em;
+    }
+
+    .quote span {
+      color: var(--accent);
+    }
+
+    /* ALTERNATIVES */
+
+    .alternatives {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 55px;
+    }
+
+    .word {
+      background: var(--card);
+      padding: 25px 24px;
+      font-size: 21px;
+      letter-spacing: -.02em;
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .word:hover {
+      transform: translateY(-4px);
+      background: #e2ded6;
+    }
+
+    /* SOLUTION */
+
+    .big-statement {
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      max-width: 850px;
+    }
+
+    .big-statement strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 45px 0 55px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-credit {
+      text-align: right;
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer-credit a {
+      color: var(--text);
+      text-decoration: none;
+      transition:
+        color .2s ease,
+        transform .2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-credit a:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .github-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      display: block;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 28px, 1100px);
+      }
+
+      nav {
+        height: 68px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0 100px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 17vw, 100px);
+      }
+
+      .hero-copy {
+        margin-top: 40px;
+        font-size: 18px;
+      }
+
+      section {
+        padding: 85px 0;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      h2 {
+        margin-bottom: 28px;
+      }
+
+      .body-copy {
+        font-size: 18px;
+      }
+
+      .quote {
+        margin-top: 50px;
+        font-size: 32px;
+      }
+
+      .alternatives {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .word {
+        padding: 20px 17px;
+        font-size: 18px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-credit {
+        text-align: left;
+      }
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- NAVIGATION -->
+    <nav aria-label="Main navigation">
+
+      <a
+        href="#"
+        class="logo"
+        aria-label="HeyGirls.cc home"
+      >
+        heygirls<span>.cc</span>
+      </a>
+
+      <a
+        href="#solution"
+        aria-label="Jump to the solution section"
+      >
+        why this exists ↓
+      </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <main
+      class="hero"
+      aria-labelledby="hero-heading"
+    >
+
+      <div
+        class="eyebrow"
+        aria-hidden="true"
+      >
+        A tiny thought about language
+      </div>
+
+      <h1 id="hero-heading">
+        Hey <em>girls.</em>
+      </h1>
+
+      <p class="hero-copy">
+        What if the way we address a group didn't quietly assume
+        everyone's gender?
+      </p>
+
+      <div
+        class="scroll"
+        aria-hidden="true"
+      >
+        SCROLL TO EXPLORE ↓
+      </div>
+
+    </main>
+
+
+    <!-- PROBLEM -->
+    <section
+      id="problem"
+      aria-labelledby="problem-heading"
+    >
+
+      <div class="section-grid">
+
+        <div
+          class="section-label"
+          aria-hidden="true"
+        >
+          01 — The problem
+        </div>
+
+        <div class="section-content">
+
+          <h2 id="problem-heading">
+            “Hey guys” somehow became everyone.
+          </h2>
+
+          <p class="body-copy">
+            We use it for groups of men. Groups of women.
+            Groups of everyone.
+          </p>
+
+          <p class="body-copy">
+            But when a space is predominantly girls, the
+            alternative often becomes “girlies,” “girls,” or “gals.”
+          </p>
+
+          <p class="body-copy">
+            It sounds cute. It sounds friendly.
+          </p>
+
+          <p class="body-copy">
+            But it also assumes everyone in the room identifies
+            as a girl.
+          </p>
+
+          <div
+            class="quote"
+            role="note"
+            aria-label="Key point about gendered language"
+          >
+            And that's the weird part.
+            <br><br>
+            One gendered word is treated as
+            <span>universal</span>,
+            while another is treated as specific.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUESTION -->
+    <section
+      aria-labelledby="question-heading"
+    >
+
+      <div class="section-grid">
+
+        <div
+          class="section-label"
+          aria-hidden="true"
+        >
+          02 — The question
+        </div>
+
+        <div class="section-content">
+
+          <h2
+            id="question-heading"
+            class="big-statement"
+          >
+            Why should the language we use to make people feel
+            <strong>included</strong> depend on their gender?
+          </h2>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOLUTION -->
+    <section
+      id="solution"
+      aria-labelledby="solution-heading"
+    >
+
+      <div class="section-grid">
+
+        <div
+          class="section-label"
+          aria-hidden="true"
+        >
+          03 — The solution
+        </div>
+
+        <div class="section-content">
+
+          <h2 id="solution-heading">
+            Just say something else.
+          </h2>
+
+          <p class="body-copy">
+            Instead of defaulting to gendered language,
+            there are plenty of words that welcome everyone.
+          </p>
+
+          <div
+            class="alternatives"
+            aria-label="Examples of inclusive alternatives"
+          >
+
+            <div class="word">everyone</div>
+            <div class="word">everybody</div>
+            <div class="word">folks</div>
+            <div class="word">all</div>
+            <div class="word">friends</div>
+            <div class="word">team</div>
+            <div class="word">y'all</div>
+            <div class="word">yous</div>
+            <div class="word">youse</div>
+            <div class="word">people</div>
+            <div class="word">peeps</div>
+            <div class="word">chat</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- THE POINT -->
+    <section
+      aria-labelledby="point-heading"
+    >
+
+      <div class="section-grid">
+
+        <div
+          class="section-label"
+          aria-hidden="true"
+        >
+          04 — The point
+        </div>
+
+        <div class="section-content">
+
+          <h2
+            id="point-heading"
+            class="big-statement"
+          >
+            It's not about policing language.
+            <br><br>
+            It's not about banning <strong>“girlies.”</strong>
+            <br><br>
+            It's simply about making room for
+            <strong>everyone.</strong>
+          </h2>
+
+          <p
+            class="body-copy"
+            style="margin-top: 55px;"
+          >
+            Language evolves because people use it.
+            This is just a little nudge toward using words
+            that don't make inclusion dependent on gender.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer
+      aria-label="Site footer"
+    >
+
+      <div class="footer-inner">
+
+        <div
+          class="footer-brand"
+          aria-label="HeyGirls.cc"
+        >
+          heygirls<span>.cc</span>
+        </div>
+
+        <div class="footer-credit">
+
+          A tiny internet project by<br>
+
+          <strong>
+            Naalvar Kuzhu
+          </strong>
+
+          <br>
+
+          <a href="https://github.com/nammahari" target="_blank" rel="noopener noreferrer">Hari</a> ·
+          <a href="https://github.com/harshpatel5940" target="_blank" rel="noopener noreferrer">Harsh</a> ·
+          <a href="https://github.com/justinbenito" target="_blank" rel="noopener noreferrer">Justin</a> ·
+          <a href="https://github.com/sarveshmrao" target="_blank" rel="noopener noreferrer">Sarvesh</a>
+
+          <br><br>
+
+          <a
+            href="https://github.com/Naalvar-Kuzhu/heygirls.cc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View HeyGirls.cc source code on GitHub"
+            title="View source code on GitHub"
+          >
+
+            <svg
+              class="github-icon"
+              viewBox="0 0 24 24"
+              role="img"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+</body>
+</html>
